@@ -1,5 +1,10 @@
 package BinaryHeap;
 
+import org.omg.CORBA.Any;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 @SuppressWarnings("unchecked")
 public class Heap<AnyType extends Comparable<AnyType>>
 {
@@ -25,7 +30,7 @@ public class Heap<AnyType extends Comparable<AnyType>>
         buildHeap();
     }
 
-    private void buildHeap()
+    public void buildHeap()
     {
         for (int k = size/2; k > 0; k--)
         {
@@ -102,14 +107,8 @@ public class Heap<AnyType extends Comparable<AnyType>>
         if(size == 0)
             return null;
 
-        return heap[0];
+        return heap[1];
     }
-     public AnyType watchMax() {
-         if(size == 0)
-             return null;
-
-         return heap[size - 1];
-     }
 
 
     public String toString()
@@ -121,26 +120,28 @@ public class Heap<AnyType extends Comparable<AnyType>>
 
     public static void main(String[] args)
     {
-        Heap<String> h = new Heap<String>();
-
-        h.insert("p");
-        h.insert("r");
-        h.insert("i");
-        h.insert("o");
-        System.out.println(h);
-        h.deleteMin();
-        System.out.println(h);
-
 
         Heap<Integer> tmp = new Heap<Integer>();
-        tmp.insert(2);
+        tmp.insert(0);
         tmp.insert(2);
         tmp.insert(3);
         tmp.insert(6);
         tmp.insert(1);
         tmp.insert(4);
+        tmp.insert(5);
+        tmp.insert(2);
+        tmp.insert(3);
+        tmp.insert(6);
+        tmp.insert(9);
+        tmp.insert(4);
+        tmp.insert(1);
+        tmp.insert(4);
+        tmp.insert(2);
+        tmp.insert(3);
+        tmp.insert(3);
+        tmp.insert(6);
+        tmp.insert(1);
         tmp.buildHeap();
-        System.out.println(tmp.toString());
         tmp.deleteMin();
         System.out.println(tmp.toString());
     }
